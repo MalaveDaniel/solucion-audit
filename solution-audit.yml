@@ -16,3 +16,8 @@
     - name: colocar rotate en auditd
       ansible.builtin.shell: |
         sed -i 's/^admin_space_left_action = halt/admin_space_left_action = SUSPEND/g' /etc/audit/auditd.conf
+
+    - name: Restart auditd services
+      ansible.builtin.service:
+         name: auditd
+         state: restarted

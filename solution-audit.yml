@@ -7,6 +7,12 @@
     - name: colocar rotate en auditd
       ansible.builtin.shell: |
         sed -i 's/^max_log_file_action = keep_logs/max_log_file_action = rotate/g' /etc/audit/auditd.conf
-      register: log-change_files
-      failed_when: "log-change_lines | length > 0"
-      ignore_errors: true
+
+
+    - name: colocar rotate en auditd
+      ansible.builtin.shell: |
+        sed -i 's/^space_left_action = mail/space_left_action = rotate/g' /etc/audit/auditd.conf
+
+    - name: colocar rotate en auditd
+      ansible.builtin.shell: |
+        sed -i 's/^admin_space_left_action = halt /space_left_action = SUSPEND/g' /etc/audit/auditd.conf

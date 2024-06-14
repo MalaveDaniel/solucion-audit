@@ -11,8 +11,8 @@
 
     - name: colocar rotate en auditd
       ansible.builtin.shell: |
-        sed -i 's/^space_left_action = mail/space_left_action = rotate/g' /etc/audit/auditd.conf
+        sed -i 's/^space_left_action = email/space_left_action = rotate/g' /etc/audit/auditd.conf
 
     - name: colocar rotate en auditd
       ansible.builtin.shell: |
-        sed -i 's/^admin_space_left_action = halt /space_left_action = SUSPEND/g' /etc/audit/auditd.conf
+        sed -i 's/^admin_space_left_action = halt /admin_space_left_action = SUSPEND/g' /etc/audit/auditd.conf

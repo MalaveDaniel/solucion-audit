@@ -1,7 +1,7 @@
 ---
 - name: Configuracion audit rotate
   hosts: all
-  become: false
+  become: true
   gather_facts: true
   tasks:
     - name: colocar rotate en auditd

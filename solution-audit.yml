@@ -1,0 +1,12 @@
+---
+- name: Configuracion audit rotate
+  hosts: all
+  become: false
+  gather_facts: true
+  tasks:
+    - name: colocar rotate en auditd
+      ansible.builtin.shell: |
+        sed -i 's/^max_log_file_action = keep_logs/max_log_file_action = rotate' /etc/audit/auditd.conf
+      register: log-change_files
+      failed_when: "log-change_lines | length > 0"
+      ignore_errors: true

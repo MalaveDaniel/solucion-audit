@@ -17,7 +17,5 @@
         sed -i 's/^admin_space_left_action = halt/admin_space_left_action = SUSPEND/g' /etc/audit/auditd.conf
 
     - name: stop auditd services
-      ansible.builtin.command: systemctl stop auditd.service
-
-    - name: start auditd services
-      ansible.builtin.command: systemctl start auditd.service
+      ansible.builtin.shell: | 
+        systemctl restart auditd.service

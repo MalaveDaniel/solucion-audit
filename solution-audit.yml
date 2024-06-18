@@ -18,4 +18,5 @@
 
     - name: stop auditd services
       ansible.builtin.shell: | 
-        systemctl restart auditd.service
+        systemctl stop auditd.service
+        systemctl start auditd.service
